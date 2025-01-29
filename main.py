@@ -2,10 +2,12 @@ from github import Github
 from difflib import SequenceMatcher
 import ast
 
+#Authenticate with github API
 access_token = "SECRET_KEY"
 g = Github(access_token)
 
-qeury = "print(Hello world)"
+#search for code in Github repo
+qeury = "Granton"
 results = g.search_code(qeury)
 
 for result in results:
@@ -14,6 +16,7 @@ for result in results:
     print(f"URL: {result.html_url}")
     print("-------")
 
+# works replace code1 nd code2 with actual code
 def code_similarity(code1, code2):
     return SequenceMatcher(None, code1, code2).ratio()
 
